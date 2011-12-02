@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		@import url( http://mbrooks.info/readme.css );
+	</style>
+
+	<title>README</title>
+</head>
+<body>
+
+<h1>Daisy Content Scroller</h1>
+
+<p>A lightweight horizontal content scroller that can be easily added to your web site or application.</p>
+
+<h2>Features</h2>
+
+<ul>
+	<li>Extensible HTML/CSS interface.</li>
+	<li>Compatible with Firefox 3.6+, Chrome, Safari 5+, Opera, and Internet Explorer 7+ web browsers.</li>
+	<li>Easy to set-up and customize.</li>
+	<li>Supports multiple scoller instances on a single document.</li>
+	<li>Supports HTML, Flash objects and image content.</li>
+	<li>Fast and lightweight (jQuery plug-in *only 2.8 kB)</li>
+</ul>
+
+<p>Check out the <a href="demo.html">demo</a> provided with this package.</p>
+
+<a name="install"></a>
+
+<h2>Installation</h2>
+
+<ol>
+	<li>Download the latest <a href="https://github.com/nuxy/Daisy-Content-Scroller">sources</a> to your computer using a web browser.</li>
+	<li>Extract the contents of the <em>.zip</em> into a folder on your local computer.</li>
+	<li>Upload the folder with the <strong>following files</strong> to your web site.</li>
+</ol>
+
+<table border="1">
+	<tr>
+		<th>Filename</th>
+		<th>Role</th>
+	</tr>
+	<tr>
+		<td>jquery.daisy.scroller.min.js</td>
+		<td>The main script to be included from within your HTML document.</td>
+	</tr>
+	<tr>
+		<td>jquery.daisy.scroller.min.css</td>
+		<td>This style sheet that defines the "look & feel" of the content scroller.</td>
+	</tr>
+</table>
+
+<h2>Source Code</h2>
+
+<ol>
+	<li>
+		<p>Add the following Javascript between the <code>&lt;head&gt;&lt;/head&gt;</code> tags of your HTML document.</p>
+
+<pre>&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"&gt;&lt;/script&gt;
+
+&lt;script src="/path/to/jquery-daisy-scroller/jquery.daisy.scroller.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$(document).ready(function() {
+	$('#container').DaisyScroller();    // main function
+	$('#container').DaisyScroller('start');
+});
+&lt;/script&gt;</pre>
+	</li>
+	<li>
+		<p>Add the following HTML code to your document.  Please refer to the <a href="demo.css">demo.css</a> for element overrides.
+
+<pre>&lt;div id="container"&gt;
+	&lt;button class="daisy_button_last" type="button" title="Last"&gt;&#38;lt;&#38;lt; Last&lt;/button&gt;
+
+	&lt;div class="daisy">
+		&lt;div&gt;Custom HTML&lt;/div&gt;
+		&lt;div&gt;Custom HTML&lt;/div&gt;
+		&lt;div&gt;Custom HTML&lt;/div&gt;
+		..
+	&lt;/div&gt;
+
+	&lt;button class="daisy_button_next" type="button" title="Next"&gt;Next &#38;gt;&#38;gt;&lt;/button&gt;
+&lt;/div&gt;</pre>
+	</li>
+</ol>
+
+<h2>Plug-in Settings</h2>
+
+<p>The following options can be passed to the plug-in main function as JSON</p>
+
+<table border="1">
+	<tr>
+		<th>Option</th>
+		<th>Description</th>
+		<th>Default Value</th>
+	</tr>
+	<tr>
+		<td>scrollEasing</td>
+		<td>animation to be used when scrolling content</td>
+		<td>easeOutCirc</td>
+	</tr>
+	<tr>
+		<td>scrollSpeed</td>
+		<td>speed of the scroller in milliseconds</td>
+		<td>400</td>
+	</tr>
+</table>
+
+<p>Click <a href="http://jqueryui.com/demos/effect/easing.html">here</a> for more information about the available jQuery UI Easing effects.</p>
+
+<h2>Public Methods</h2>
+
+<p>The following methods can be passed to the plugin-in main function after successful initialization.</p>
+
+<table border="1">
+	<tr>
+		<th>Method</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>start</td>
+		<td>launches the content scroller</td>
+	</tr>
+    <tr>
+        <td>cleanup</td>
+        <td>removes white-space and newlines between the HTML content elements</td>
+    </tr>
+    <tr>
+        <td>reset</td>
+        <td>reset the scroller back to its original start position</td>
+    </tr>
+</table>
+
+<h2>Element Tree View</h2>
+
+<p>Use the following as a guide when modifying scroller elements.</p>
+
+<pre>                                          [DIV#container]
+                           ______________________|_______________________
+                          |                      |                       |
+              [BUTTON.daisy_button_last]    [DIV.daisy]    [BUTTON.daisy_button_next]
+                    _____________________________|_____________________________
+                   |     |     |     |     |     |     |     |     |     |     |
+                 [DIV] [DIV] [DIV] [DIV] [DIV] [DIV] [DIV] [DIV] [DIV] [DIV] [DIV]</pre>
+
+<h2>Releases</h2>
+
+<p>I have included with this package a <a href="http://dean.edwards.name/packer">packed</a> version (2 kB) and developers version (unpacked 4.2 kB)</p>
+
+<p>You can always find the latest updates within this projects repository.</p>
+
+<h2>Code Repository</h2>
+
+<p>This projects repository is currently hosted on <a href="https://github.com">Github</a></p>
+
+<pre>https://github.com/nuxy/Daisy-Content-Scroller</pre>
+
+<h2>Maintainer</h2>
+
+<p>For feedback, bug reports, or other comments, feel free to contact me at: <strong>devel</strong> <em>at</em> <strong>mbrooks</strong> <em>dot</em> <strong>info</strong></p>
+
+<h2>License and Warranty</h2>
+
+<p>This package is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.</p>
+
+<p>Daisy Content Scroller is provided under the terms of the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.</p>
+
+<p>Daisy Content Scroller &#169;2011-2012 <a href="http://mbrooks.info">Marc S. Brooks</a></p>
+
+</body>
+</html>

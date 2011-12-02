@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+
+	<!-- Javascript insert start -->
+
+	<script src="jquery.daisy.scroller.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$('#container').DaisyScroller();
+		$('#container').DaisyScroller('start');
+	});
+	</script>
+
+	<!-- Javascript insert end -->
+
+	<style type="text/css">
+		@import url( demo.css );
+	</style>
+
+	<title>Daisy Content Scroller</title>
+</head>
+<body>
+
+<p id="about">
+	This <strong>jQuery</strong> plugin is <a href="jquery.daisy.scroller.min.js" title="Only 2.8 kb">lightweight</a>, easy to <a href="README.html#install" title="Installation">install</a> / <a href="demo.css" title="Stylesheet">customize</a>, and is compatible with <strong>Firefox 3.6+</strong>, <strong>Chrome</strong>, <strong>Safari 5+</strong>, <strong>Opera</strong>, and <strong>Internet Explorer 7+</strong> web browsers.
+</p>
+
+
+<!-- HTML example start -->
+
+<div id="container">
+	<button class="daisy_button_last" type="button" title="Last">&lt;&lt; Last</button>
+
+	<div class="daisy">
+		<div><a href="http://mbrooks.info"><img src="demo/0.jpg"></a></div>
+		<div><a href="demo/1.jpg" title="View"><img src="demo/1.jpg"></a></div>
+		<div><a href="demo/2.jpg" title="View"><img src="demo/2.jpg"></a></div>
+		<div><a href="demo/3.jpg" title="View"><img src="demo/3.jpg"></a></div>
+		<div><a href="demo/4.jpg" title="View"><img src="demo/4.jpg"></a></div>
+		<div><a href="demo/5.jpg" title="View"><img src="demo/5.jpg"></a></div>
+		<div><a href="demo/6.jpg" title="View"><img src="demo/6.jpg"></a></div>
+		<div><a href="demo/7.jpg" title="View"><img src="demo/7.jpg"></a></div>
+		<div><a href="demo/8.jpg" title="View"><img src="demo/8.jpg"></a></div>
+		<div><a href="demo/9.jpg" title="View"><img src="demo/9.jpg"></a></div>
+	</div>
+
+	<button class="daisy_button_next" type="button" title="Next">Next &gt;&gt;</button>
+</div>	
+
+<!-- HTML example end -->
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* demo only */
+
+#about {
+	background-color: #F7F7F7;
+	border: 1px solid #CCCCCC;
+	font-family: "Bookman Old Style", Georgia, Sans-Serif;
+	padding: 5px;
+	text-align: center;
+}
+
+
+/* customize */
+
+#container {
+	border: 4px double #BBBBBB;
+	height: 150px;
+	margin: 200px auto 0px auto;
+	width: 600px;
+}
+
+#container div.daisy {
+	background-color: #FFFFFF;
+	width: 600px;
+}
+
+#container div.daisy,
+#container div.daisy div {
+	height: 150px;
+}
+
+#container div.daisy div {
+	width: 150px;
+}
+
+#container div.daisy div a,
+#container div.daisy div a img {
+	border: 0px;
+	height: 150px;
+	width: 150px;
+}
+
+#container button.daisy_button_last,
+#container button.daisy_button_next {
+	background-color: transparent;
+	border: 1px solid #BBBBBB;
+	color: #000000;
+	filter: alpha( opacity=1.0 );
+	font-size: 0px;
+	height: 150px;
+	opacity: 1.0;
+	width: 45px;
+}
+
+#container button.daisy_button_last {
+	background-image: url( demo/button_last.png );
+	border-right: 2px inset #CCCCCC;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#container button.daisy_button_next {
+	background-image: url( demo/button_next.png );
+	border-left: 2px outset #CCCCCC;
+	margin-left: 555px;
+	margin-top: -150px;
+}
+
+#container button.daisy_button_last:hover,
+#container button.daisy_button_next:hover {
+	color: #000000;
+	font-size: 0px;
+}

@@ -68,6 +68,19 @@ button.daisy_button_next {
 	margin-top: -85px;
 }
 
+button.daisy_button_last,
+button.daisy_button_next {
+	outline: 0;
+}
+
+button.daisy_button_last::-moz-focus-inner {
+	border: 0px;
+}
+
+button.daisy_button_next::-moz-focus-inner {
+	border: 0px;
+}
+
 button.daisy_button_last:hover,
 button.daisy_button_next:hover {
 	color: #000000;

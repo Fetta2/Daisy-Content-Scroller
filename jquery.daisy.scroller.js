@@ -175,6 +175,3 @@
 		}
 	};
 })(jQuery);
-
-// import the style sheet
-document.write('<style type="text/css">@import url( jquery.daisy.scroller.min.css );</style>');

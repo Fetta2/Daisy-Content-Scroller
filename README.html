@@ -33,7 +33,7 @@
 <h2>Installation</h2>
 
 <ol>
-	<li>Download the latest <a href="https://github.com/nuxy/Daisy-Content-Scroller">sources</a> to your computer using a web browser.</li>
+	<li>Download the latest <a href="https://github.com/nuxy/Daisy-Content-Scroller/zipball/master">sources</a> to your computer using a web browser.</li>
 	<li>Extract the contents of the <em>.zip</em> into a folder on your local computer.</li>
 	<li>Upload the folder with the <strong>following files</strong> to your web site.</li>
 </ol>
@@ -62,13 +62,17 @@
 <pre>&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"&gt;&lt;/script&gt;
 
-&lt;script src="/path/to/jquery-daisy-scroller/jquery.daisy.scroller.min.js"&gt;&lt;/script&gt;
+&lt;script src="/path/to/jquery.daisy.scroller.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 $(document).ready(function() {
 	$('#container').DaisyScroller();    // main function
 	$('#container').DaisyScroller('start');
 });
-&lt;/script&gt;</pre>
+&lt;/script&gt;
+
+&lt;style type="text/css"&gt;
+	@import url( /path/to/jquery.daisy.scroller.min.css );
+&lt;style&gt</pre>
 	</li>
 	<li>
 		<p>Add the following HTML code to your document.  Please refer to the <a href="demo.css">demo.css</a> for element overrides.

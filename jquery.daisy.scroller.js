@@ -92,23 +92,53 @@
 				});
 
 				if (totalWidth > $this.width() ) {
+					data.buttonLast.hide();
+					data.buttonNext.show();
+
+					var viewLast = false;
+					var viewNext = true;
+
+					// show buttons on mouseover events
+					$this.hover(
+						function() {
+							if (viewLast) {
+								data.buttonLast.fadeIn('fast');
+							}
+
+							if (viewNext) {
+								data.buttonNext.fadeIn('fast');
+							}
+						},
+						function() {
+							if (viewLast) {
+								data.buttonLast.fadeOut('fast');
+							}
+
+							if (viewNext) {
+								data.buttonNext.fadeOut('fast');
+							}
+						}
+					);
 
 					// start scroll on clickable events
-					data.buttonLast.hide();
-					data.buttonLast.click(function() {
-						var posX = data.nodes.position().left;
-
+					data.buttonLast.stop().click(function() {
 						data.buttonNext.fadeIn('fast');
+
+						var posX = data.nodes.position().left;
 
 						if (posX + $this.width() <= 0) {
 							data.nodes.stop().animate({
 								left : '+=' + $this.width()
 							},
-							data.options.scrollSpeed, data.options.scrollEasing, function() {
-								if (posX + $this.width() == 0) {
-									data.buttonLast.fadeOut('fast');
+							data.options.scrollSpeed, data.options.scrollEasing,
+								function() {
+									if (posX + $this.width() == 0) {
+										data.buttonLast.fadeOut('fast');
+									}
 								}
-							});
+							);
+
+							viewNext = true;
 						}
 						else {
 							data.buttonLast.fadeOut('fast');
@@ -117,24 +147,29 @@
 								left : 0
 							},
 							data.options.scrollSpeed, data.options.scrollEasing);
+
+							viewLast = false;
 						}
 					});
 
-					data.buttonNext.fadeIn();
-					data.buttonNext.click(function() {
-						var posX = totalWidth + (data.nodes.position().left - $this.width() );
-
+					data.buttonNext.stop().click(function() {
 						data.buttonLast.fadeIn('fast');
+
+						var posX = totalWidth + (data.nodes.position().left - $this.width() );
 
 						if (posX >= $this.width() ) {
 							data.nodes.stop().animate({
 								left : '-=' + $this.width()
 							},
-							data.options.scrollSpeed, data.options.scrollEasing, function() {
-								if (posX == $this.width() ) {
-									data.buttonNext.fadeOut('fast');
+							data.options.scrollSpeed, data.options.scrollEasing,
+								function() {
+									if (posX == $this.width() ) {
+										data.buttonNext.fadeOut('fast');
+									}
 								}
-							});
+							);
+
+							viewLast = true;
 						}
 						else {
 							data.buttonNext.fadeOut('fast');
@@ -143,6 +178,8 @@
 								left : $this.width() - totalWidth
 							},
 							data.options.scrollSpeed, data.options.scrollEasing);
+
+							viewNext = false;
 						}
 					});
 				}

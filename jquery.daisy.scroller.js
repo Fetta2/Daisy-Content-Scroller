@@ -79,10 +79,16 @@
 				var $this = $(this),
 					data  = $this.data(element);
 
+				var totalNodes = data.nodes.length;
 				var totalWidth = 0;
 
-				data.nodes.each(function() {
+				data.nodes.each(function(index) {
 					totalWidth += $(this).width();
+
+					// add counter to element
+					$(this).append(
+						$('<span></span>').addClass('counter').append( (index + 1) + ' of ' + totalNodes)
+					);
 				});
 
 				if (totalWidth > $this.width() ) {

@@ -40,6 +40,16 @@ div.daisy div a img {
 	width: 150px;
 }
 
+div.daisy div span.counter {
+	bottom: 10px;
+	color: #BBBBBB;
+	font-size: 12px;
+	left: 55px;
+	padding: 0px 1px 0px 1px;
+	position: absolute;
+	z-index: 20;
+}
+
 button.daisy_button_last,
 button.daisy_button_next {
 	background-color: #F7F7F7;

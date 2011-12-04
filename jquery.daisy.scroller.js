@@ -95,7 +95,7 @@
 
 					// set visibility on load
 					data.buttonLast.hide();
-					data.buttonNext.show('fast');
+					data.buttonNext.show(0);
 
 					var viewButtonLast = false;
 					var viewButtonNext = true;

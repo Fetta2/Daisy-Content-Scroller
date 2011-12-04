@@ -96,17 +96,16 @@
 					// start scroll on clickable events
 					data.buttonLast.hide();
 					data.buttonLast.click(function() {
-						var oldX = data.nodes.position().left;
-						var newX = totalWidth + (oldX - $this.width() );
+						var posX = data.nodes.position().left;
 
 						data.buttonNext.fadeIn('fast');
 
-						if (oldX + $this.width() <= 0) {
+						if (posX + $this.width() <= 0) {
 							data.nodes.stop().animate({
 								left : '+=' + $this.width()
 							},
 							data.options.scrollSpeed, data.options.scrollEasing, function() {
-								if (oldX + $this.width() == 0) {
+								if (posX + $this.width() == 0) {
 									data.buttonLast.fadeOut('fast');
 								}
 							});
@@ -123,17 +122,16 @@
 
 					data.buttonNext.fadeIn();
 					data.buttonNext.click(function() {
-						var oldX = data.nodes.position().left;
-						var newX = totalWidth + (oldX - $this.width() );
+						var posX = totalWidth + (data.nodes.position().left - $this.width() );
 
 						data.buttonLast.fadeIn('fast');
 
-						if (newX >= $this.width() ) {
+						if (posX >= $this.width() ) {
 							data.nodes.stop().animate({
 								left : '-=' + $this.width()
 							},
 							data.options.scrollSpeed, data.options.scrollEasing, function() {
-								if (newX == $this.width() ) {
+								if (posX == $this.width() ) {
 									data.buttonNext.fadeOut('fast');
 								}
 							});

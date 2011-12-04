@@ -46,7 +46,6 @@ button.daisy_button_next {
 	border: 1px solid #BBBBBB;
 	color: #787878;
 	cursor: pointer;
-	display: none;
 	filter: alpha( opacity=70 );
 	height: 20px;
 	font-size: 10px;

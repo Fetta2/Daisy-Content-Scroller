@@ -3,7 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tienne">
 
-	<style type="text/css">
+	<style>
 		@import url( http://mbrooks.info/readme.css );
 	</style>
 
@@ -62,17 +62,15 @@
 <pre>&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"&gt;&lt;/script&gt;
 
+&lt;link rel="stylesheet" type="text/css" href="/path/to/jquery.daisy.scroller.min.css"&gt;
+
 &lt;script src="/path/to/jquery.daisy.scroller.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 $(document).ready(function() {
 	$('#container').DaisyScroller();    // main function
 	$('#container').DaisyScroller('start');
 });
-&lt;/script&gt;
-
-&lt;style type="text/css"&gt;
-	@import url( /path/to/jquery.daisy.scroller.min.css );
-&lt;style&gt</pre>
+&lt;/script&gt;</pre>
 	</li>
 	<li>
 		<p>Add the following HTML code to your document.  Please refer to the <a href="demo.css">demo.css</a> for element overrides.
@@ -112,6 +110,11 @@ $(document).ready(function() {
 		<td>speed of the scroller in milliseconds</td>
 		<td>400</td>
 	</tr>
+	<tr>
+		<td>showCounter</td>
+		<td>show the element counter (1 of &lt;total elements&gt;)</td>
+		<td>false</td>
+	</tr>
 </table>
 
 <p>Click <a href="http://jqueryui.com/demos/effect/easing.html">here</a> for more information about the available jQuery UI Easing effects.</p>
@@ -129,14 +132,14 @@ $(document).ready(function() {
 		<td>start</td>
 		<td>launches the content scroller</td>
 	</tr>
-    <tr>
-        <td>cleanup</td>
-        <td>removes white-space and newlines between the HTML content elements</td>
-    </tr>
-    <tr>
-        <td>reset</td>
-        <td>reset the scroller back to its original start position</td>
-    </tr>
+	<tr>
+		<td>cleanup</td>
+		<td>removes white-space and newlines between the HTML content elements</td>
+	</tr>
+	<tr>
+		<td>reset</td>
+		<td>reset the scroller back to its original start position</td>
+	</tr>
 </table>
 
 <h2>Element Tree View</h2>

@@ -19,7 +19,8 @@
 			// default options
 			var settings = $.extend({
 				scrollEasing : 'easeOutCirc',
-				scrollSpeed  :  400
+				scrollSpeed  :  400,
+				showCounter  : false
 			}, options);
 
 			element = '#' + $(this).attr('id');
@@ -86,9 +87,11 @@
 					totalWidth += $(this).width();
 
 					// add counter to element
-					$(this).append(
-						$('<span></span>').addClass('counter').append( (index + 1) + ' of ' + totalNodes)
-					);
+					if (data.options.showCounter) {
+						$(this).append(
+							$('<span></span>').addClass('counter').append( (index + 1) + ' of ' + totalNodes)
+						);
+					}
 				});
 
 				if (totalWidth > $this.width() ) {

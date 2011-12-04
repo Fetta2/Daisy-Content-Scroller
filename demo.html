@@ -19,7 +19,9 @@
 	<script src="jquery.daisy.scroller.min.js"></script>
 	<script>
 	$(document).ready(function() {
-		$('#container').DaisyScroller();
+		$('#container').DaisyScroller({
+			showCounter : true
+		});
 		$('#container').DaisyScroller('start');
 	});
 	</script>

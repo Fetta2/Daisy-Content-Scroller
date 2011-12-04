@@ -50,7 +50,6 @@ div.daisy div span.counter {
 	background-color: transparent;
 	border: 1px solid #BBBBBB;
 	color: #000000;
-	display: none;
 	filter: alpha( opacity=1.0 );
 	font-size: 0px;
 	height: 150px;

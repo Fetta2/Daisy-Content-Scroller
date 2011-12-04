@@ -47,7 +47,7 @@ div.daisy div span.counter {
 	left: 55px;
 	padding: 0px 1px 0px 1px;
 	position: absolute;
-	z-index: 20;
+	z-index: 5;
 }
 
 button.daisy_button_last,
@@ -56,6 +56,7 @@ button.daisy_button_next {
 	border: 1px solid #BBBBBB;
 	color: #787878;
 	cursor: pointer;
+	display: none;
 	filter: alpha( opacity=70 );
 	height: 20px;
 	font-size: 10px;

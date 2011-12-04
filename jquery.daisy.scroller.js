@@ -92,36 +92,38 @@
 				});
 
 				if (totalWidth > $this.width() ) {
-					data.buttonLast.hide();
-					data.buttonNext.show();
 
-					var viewLast = false;
-					var viewNext = true;
+					// set visibility on load
+					data.buttonLast.hide();
+					data.buttonNext.show('fast');
+
+					var viewButtonLast = false;
+					var viewButtonNext = true;
 
 					// show buttons on mouseover events
 					$this.hover(
 						function() {
-							if (viewLast) {
-								data.buttonLast.fadeIn('fast');
+							if (viewButtonLast) {
+								data.buttonLast.show();
 							}
 
-							if (viewNext) {
-								data.buttonNext.fadeIn('fast');
+							if (viewButtonNext) {
+								data.buttonNext.show();
 							}
 						},
 						function() {
-							if (viewLast) {
+							if (viewButtonLast) {
 								data.buttonLast.fadeOut('fast');
 							}
 
-							if (viewNext) {
+							if (viewButtonNext) {
 								data.buttonNext.fadeOut('fast');
 							}
 						}
 					);
 
 					// start scroll on clickable events
-					data.buttonLast.stop().click(function() {
+					data.buttonLast.click(function() {
 						data.buttonNext.fadeIn('fast');
 
 						var posX = data.nodes.position().left;
@@ -138,7 +140,7 @@
 								}
 							);
 
-							viewNext = true;
+							viewButtonNext = true;
 						}
 						else {
 							data.buttonLast.fadeOut('fast');
@@ -148,11 +150,11 @@
 							},
 							data.options.scrollSpeed, data.options.scrollEasing);
 
-							viewLast = false;
+							viewButtonLast = false;
 						}
 					});
 
-					data.buttonNext.stop().click(function() {
+					data.buttonNext.click(function() {
 						data.buttonLast.fadeIn('fast');
 
 						var posX = totalWidth + (data.nodes.position().left - $this.width() );
@@ -169,7 +171,7 @@
 								}
 							);
 
-							viewLast = true;
+							viewButtonLast = true;
 						}
 						else {
 							data.buttonNext.fadeOut('fast');
@@ -179,7 +181,7 @@
 							},
 							data.options.scrollSpeed, data.options.scrollEasing);
 
-							viewNext = false;
+							viewButtonNext = false;
 						}
 					});
 				}

@@ -1,5 +1,5 @@
 /*
- *  Daisy Content Scroller 1.0
+ *  Daisy Content Scroller
  *  A lightweight horizontal content scroller
  *
  *  Copyright 2011-2012, Marc S. Brooks (http://mbrooks.info)

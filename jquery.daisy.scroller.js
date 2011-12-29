@@ -12,7 +12,6 @@
  */
 
 (function($) {
-	var element;
 	var methods = {
 		init : function(options) {
 
@@ -23,18 +22,16 @@
 				showCounter  : false
 			}, options);
 
-			element = '#' + $(this).attr('id');
-
 			return this.each(function() {
 				var $this = $(this),
-					data  = $this.data(element);
+					data  = $this.data();
 
-				if (!data) {
-					$(this).data(element, {
-						scroller   : $(element + ' div.daisy'),
-						nodes      : $(element + ' div.daisy > div'),
-						buttonLast : $(element + ' button.daisy_button_last'),
-						buttonNext : $(element + ' button.daisy_button_next'),
+				if ( $.isEmptyObject(data) ) {
+					$(this).data({
+						scroller   : $('.daisy',             $this),
+						nodes      : $('.daisy > div',       $this),
+						buttonLast : $('.daisy_button_last', $this),
+						buttonNext : $('.daisy_button_next', $this),
 						options    : settings
 					});
 
@@ -45,14 +42,14 @@
 
 		destroy : function() {
 			return this.each(function() {
-				$(this).removeData(element);
+				$(this).removeData();
 			});
 		},
 
 		cleanup : function() {
 			return this.each(function() {
 				var $this = $(this),
-					data  = $this.data(element);
+					data  = $this.data();
 
 				var sizes = [];
 
@@ -71,14 +68,14 @@
 					$(this).width(sizes[num]);
 				});
 
-				data.nodes = $(element + ' div.daisy > div');
+				data.nodes = $('.daisy > div', $this);
 			});
 		},
 
 		start : function() {
 			return this.each(function() {
 				var $this = $(this),
-					data  = $this.data(element);
+					data  = $this.data();
 
 				var totalNodes = data.nodes.length;
 				var totalWidth = 0;
@@ -194,7 +191,7 @@
 		reset : function() {
 			return this.each(function() {
 				var $this = $(this),
-					data = $(this).data(element);
+					data = $(this).data();
 
 				data.buttonLast.hide();
 				data.buttonNext.hide();

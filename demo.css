@@ -2,6 +2,7 @@
 
 #container {
 	border: 4px double #BBBBBB;
+	font-family: Tienne, Sans-Serif;
 	height: 150px;
 	margin: 200px auto 0px auto;
 	width: 600px;
@@ -31,7 +32,9 @@
 div.daisy div span.counter {
 	background-color: #FFFFFF;
 	border: 1px solid #CCCCCC;
-	color: #787878;
+	color: #000000;
+	filter: alpha( opacity=0.5 );
+	opacity: 0.5;
 }
 
 #container button.daisy_button_last,

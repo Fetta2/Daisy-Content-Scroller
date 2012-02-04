@@ -2,6 +2,8 @@
 
 A lightweight horizontal content scroller that can be easily added to your web site or application.
 
+http://github.com/nuxy/Daisy-Content-Scroller/raw/master/preview.jpg
+
 == Features
 
 - Extensible HTML/CSS interface.

@@ -8,6 +8,7 @@
  *
  *  Dependencies:
  *    jquery.js
+ *    jquery-ui.js
  */
 
 (function($) {

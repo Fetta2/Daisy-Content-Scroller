@@ -19,6 +19,7 @@
 			var settings = $.extend({
 				scrollEasing : 'easeOutCirc',
 				scrollSpeed  :  400,
+				scrollEvent  : null,
 				showCounter  : false
 			}, options);
 
@@ -27,7 +28,7 @@
 					data  = $this.data();
 
 				if ( $.isEmptyObject(data) ) {
-					$(this).data({
+					$this.data({
 						scroller   : $('.daisy',             $this),
 						nodes      : $('.daisy > div',       $this),
 						buttonLast : $('.daisy_button_last', $this),
@@ -35,7 +36,7 @@
 						options    : settings
 					});
 
-					$(this).DaisyScroller('cleanup');
+					$this.DaisyScroller('cleanup');
 				}
 			});
 		},
@@ -152,6 +153,8 @@
 
 							viewButtonLast = false;
 						}
+
+						data.options.scrollEvent($this);
 					});
 
 					data.buttonNext.click(function() {
@@ -183,6 +186,8 @@
 
 							viewButtonNext = false;
 						}
+
+						data.options.scrollEvent($this);
 					});
 				}
 			});
@@ -191,7 +196,7 @@
 		reset : function() {
 			return this.each(function() {
 				var $this = $(this),
-					data = $(this).data();
+					data = $this.data();
 
 				data.buttonLast.hide();
 				data.buttonNext.hide();

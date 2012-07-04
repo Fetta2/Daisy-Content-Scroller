@@ -29,11 +29,10 @@
 
 				if ( $.isEmptyObject(data) ) {
 					$this.data({
-						scroller   : $('.daisy',             $this),
-						nodes      : $('.daisy > div',       $this),
-						buttonLast : $('.daisy_button_last', $this),
-						buttonNext : $('.daisy_button_next', $this),
-						options    : settings
+						scroller   : $this.children('.daisy'),
+						nodes      : $this.children('.daisy > div'),
+						buttonLast : $this.children('.daisy_button_last'),
+						buttonNext : $this.children('.daisy_button_next'),
 					});
 
 					$this.DaisyScroller('cleanup');
@@ -69,7 +68,7 @@
 					$(this).width(sizes[num]);
 				});
 
-				data.nodes = $('.daisy > div', $this);
+				data.nodes = $this.find('.daisy > div');
 			});
 		},
 

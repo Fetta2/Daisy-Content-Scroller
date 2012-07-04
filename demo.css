@@ -29,7 +29,7 @@
 	width: 150px;
 }
 
-div.daisy div span.counter {
+#container div.daisy div span.counter {
 	background-color: #FFFFFF;
 	border: 1px solid #CCCCCC;
 	color: #000000;

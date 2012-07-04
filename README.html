@@ -16,11 +16,10 @@
 <ul>
 	<li>Extensible HTML/CSS interface.</li>
 	<li>Compatible with Firefox 3.6+, Chrome, Safari 5+, Opera, and Internet Explorer 7+ web browsers.</li>
-	<li>Compatible with iOS and Android mobile web browsers.</li>
 	<li>Easy to set-up and customize.</li>
 	<li>Supports multiple scoller instances on a single document.</li>
 	<li>Supports HTML, Flash objects and image content.</li>
-	<li>Fast and lightweight (jQuery plug-in *only 2.8 kB)</li>
+	<li>Fast and lightweight (jQuery plug-in *only 3.2 kB)</li>
 </ul>
 
 <p>Check out the <a href="demo.html">demo</a> provided with this package.</p>
@@ -52,9 +51,7 @@
 
 <h2>Source Code</h2>
 
-<ol>
-	<li>
-		<p>Add the following Javascript between the <code>&lt;head&gt;&lt;/head&gt;</code> tags of your HTML document.</p>
+<p>Add the following Javascript between the <code>&lt;head&gt;&lt;/head&gt;</code> tags of your HTML document.</p>
 
 <pre>
 &lt;script src="http://www.google.com/jsapi"&gt;&lt;/script&gt;
@@ -68,18 +65,18 @@
 &lt;script src="/path/to/jquery.daisy.scroller.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 $(document).ready(function() {
-	$('#container').DaisyScroller();    // main function
-	$('#container').DaisyScroller('start');
+	$('#container').DaisyScroller({
+		scrollSpeed : 1000
+	});
 });
 &lt;/script&gt;</pre>
-	</li>
-	<li>
-		<p>Add the following HTML code to your document.  Please refer to the <a href="demo.css">demo.css</a> for element overrides.
+
+<p>Add the following HTML code to your document.  Please refer to the <a href="demo.css">demo.css</a> for element overrides.
 
 <pre>&lt;div id="container"&gt;
 	&lt;button class="daisy_button_last" type="button" title="Last"&gt;&#38;lt;&#38;lt; Last&lt;/button&gt;
 
-	&lt;div class="daisy">
+	&lt;div class="daisy"&gt;
 		&lt;div&gt;Custom HTML&lt;/div&gt;
 		&lt;div&gt;Custom HTML&lt;/div&gt;
 		&lt;div&gt;Custom HTML&lt;/div&gt;
@@ -88,8 +85,6 @@ $(document).ready(function() {
 
 	&lt;button class="daisy_button_next" type="button" title="Next"&gt;Next &#38;gt;&#38;gt;&lt;/button&gt;
 &lt;/div&gt;</pre>
-	</li>
-</ol>
 
 <h2>Plug-in Settings</h2>
 
@@ -130,14 +125,6 @@ $(document).ready(function() {
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>start</td>
-		<td>launches the content scroller</td>
-	</tr>
-	<tr>
-		<td>cleanup</td>
-		<td>removes white-space and newlines between the HTML content elements</td>
-	</tr>
-	<tr>
 		<td>reset</td>
 		<td>reset the scroller back to its original start position</td>
 	</tr>
@@ -157,7 +144,7 @@ $(document).ready(function() {
 
 <h2>Releases</h2>
 
-<p>I have included with this package a <a href="http://dean.edwards.name/packer">packed</a> version (2 kB) and developers version (unpacked 4.2 kB)</p>
+<p>I have included with this package a <a href="http://dean.edwards.name/packer">packed</a> version (2.1 kB) and developers version (unpacked 5 kB)</p>
 
 <p>You can always find the latest updates within this projects repository.</p>
 

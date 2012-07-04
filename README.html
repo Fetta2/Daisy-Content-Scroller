@@ -49,9 +49,17 @@
 	</tr>
 </table>
 
+<h2>Set-up</h2>
+
+<p>Easy as defining the target element <code>#container</code> using the <a href="http://api.jquery.com/category/selectors">jQuery selector</a>.  An optional callback can also be defined for post-processing of nodes on scrolling events.</p>
+
+<pre>$(selector).DaisyScroller(<a href="#options"><em>options</em></a>, <a href="#callback"><em>callback</em></a>);</pre>
+
 <h2>Source Code</h2>
 
 <p>Add the following Javascript between the <code>&lt;head&gt;&lt;/head&gt;</code> tags of your HTML document.</p>
+
+<a name="examples"></a>
 
 <pre>
 &lt;script src="http://www.google.com/jsapi"&gt;&lt;/script&gt;
@@ -129,6 +137,18 @@ $(document).ready(function() {
 		<td>reset the scroller back to its original start position</td>
 	</tr>
 </table>
+
+<a name="callback"></a>
+
+<h2>Callback Processing</h2>
+
+<p>When a callback function is defined a response object of scroller nodes is returned.  The following function corresponds to the <a href="#examples">example</a> provided above.</p>
+
+<pre>function doSomething(obj) {
+
+	// post-process event
+	alert(obj.length);
+}</pre>
 
 <h2>Element Tree View</h2>
 

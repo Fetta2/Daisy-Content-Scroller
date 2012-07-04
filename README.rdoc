@@ -16,7 +16,7 @@ http://github.com/nuxy/Daisy-Content-Scroller/raw/master/preview.jpg
 
 == Installation
 
-Please refer to the {README.html}[https://github.com/nuxy/Daisy-Content-Scroller/blob/master/README.html] file for more information about this package.
+Download the latest {sources}[https://github.com/nuxy/Daisy-Content-Scroller/downloads] and refer to the {README.html}[http://labs.mbrooks.info/demos/Daisy-Content-Scroller/README.html] file for more information about this package.
 
 == Author
 

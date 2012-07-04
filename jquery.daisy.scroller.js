@@ -13,13 +13,12 @@
 
 (function($) {
 	var methods = {
-		init : function(options) {
+		init : function(options, callback) {
 
 			// default options
 			var settings = $.extend({
 				scrollEasing : 'easeOutCirc',
 				scrollSpeed  :  400,
-				scrollEvent  : null,
 				showCounter  : false
 			}, options);
 
@@ -33,9 +32,10 @@
 						nodes      : $this.children('.daisy > div'),
 						buttonLast : $this.children('.daisy_button_last'),
 						buttonNext : $this.children('.daisy_button_next'),
+						options    : settings
 					});
 
-					$this.DaisyScroller('cleanup');
+					$this.DaisyScroller('generate', callback);
 				}
 			});
 		},
@@ -46,7 +46,7 @@
 			});
 		},
 
-		cleanup : function() {
+		generate : function(callback) {
 			return this.each(function() {
 				var $this = $(this),
 					data  = $this.data();
@@ -69,126 +69,8 @@
 				});
 
 				data.nodes = $this.find('.daisy > div');
-			});
-		},
 
-		start : function() {
-			return this.each(function() {
-				var $this = $(this),
-					data  = $this.data();
-
-				var totalNodes = data.nodes.length;
-				var totalWidth = 0;
-
-				data.nodes.each(function(index) {
-					totalWidth += $(this).width();
-
-					// add counter to element
-					if (data.options.showCounter) {
-						$(this).append(
-							$('<span></span>').addClass('counter').append( (index + 1) + ' of ' + totalNodes)
-						);
-					}
-				});
-
-				if (totalWidth > $this.width() ) {
-
-					// set visibility on load
-					data.buttonLast.hide();
-					data.buttonNext.show(0);
-
-					var viewButtonLast = false;
-					var viewButtonNext = true;
-
-					// show buttons on mouseover events
-					$this.hover(
-						function() {
-							if (viewButtonLast) {
-								data.buttonLast.show();
-							}
-
-							if (viewButtonNext) {
-								data.buttonNext.show();
-							}
-						},
-						function() {
-							if (viewButtonLast) {
-								data.buttonLast.fadeOut('fast');
-							}
-
-							if (viewButtonNext) {
-								data.buttonNext.fadeOut('fast');
-							}
-						}
-					);
-
-					// start scroll on clickable events
-					data.buttonLast.click(function() {
-						data.buttonNext.fadeIn('fast');
-
-						var posX = data.nodes.position().left;
-
-						if (posX + $this.width() <= 0) {
-							data.nodes.stop().animate({
-								left : '+=' + $this.width()
-							},
-							data.options.scrollSpeed, data.options.scrollEasing,
-								function() {
-									if (posX + $this.width() == 0) {
-										data.buttonLast.fadeOut('fast');
-									}
-								}
-							);
-
-							viewButtonNext = true;
-						}
-						else {
-							data.buttonLast.fadeOut('fast');
-
-							data.nodes.stop().animate({
-								left : 0
-							},
-							data.options.scrollSpeed, data.options.scrollEasing);
-
-							viewButtonLast = false;
-						}
-
-						data.options.scrollEvent($this);
-					});
-
-					data.buttonNext.click(function() {
-						data.buttonLast.fadeIn('fast');
-
-						var posX = totalWidth + (data.nodes.position().left - $this.width() );
-
-						if (posX >= $this.width() ) {
-							data.nodes.stop().animate({
-								left : '-=' + $this.width()
-							},
-							data.options.scrollSpeed, data.options.scrollEasing,
-								function() {
-									if (posX == $this.width() ) {
-										data.buttonNext.fadeOut('fast');
-									}
-								}
-							);
-
-							viewButtonLast = true;
-						}
-						else {
-							data.buttonNext.fadeOut('fast');
-
-							data.nodes.stop().animate({
-								left : $this.width() - totalWidth
-							},
-							data.options.scrollSpeed, data.options.scrollEasing);
-
-							viewButtonNext = false;
-						}
-
-						data.options.scrollEvent($this);
-					});
-				}
+				createScroller(data, callback);
 			});
 		},
 
@@ -221,4 +103,126 @@
 			$.error('Method ' +  method + ' does not exist on jQuery.DaisyScroller');
 		}
 	};
+
+	/*
+	 * Create HTML table elements
+	 */
+	function createScroller(data, callback) {
+		var totalNodes = data.nodes.length;
+		var totalWidth = 0;
+
+		data.nodes.each(function(index) {
+			totalWidth += $(this).width();
+
+			// add counter to element
+			if (data.options.showCounter) {
+				$(this).append(
+					$('<span></span>').addClass('counter').append( (index + 1) + ' of ' + totalNodes)
+				);
+			}
+		});
+
+		if (totalWidth > data.scroller.width() ) {
+
+			// set visibility on load
+			data.buttonLast.hide();
+			data.buttonNext.show(0);
+
+			var viewButtonLast = false;
+			var viewButtonNext = true;
+
+			// show buttons on mouseover events
+			data.scroller.parent().hover(
+				function() {
+					if (viewButtonLast) {
+						data.buttonLast.show();
+					}
+
+					if (viewButtonNext) {
+						data.buttonNext.show();
+					}
+				},
+				function() {
+					if (viewButtonLast) {
+						data.buttonLast.fadeOut('fast');
+					}
+
+					if (viewButtonNext) {
+						data.buttonNext.fadeOut('fast');
+					}
+				}
+			);
+
+			// start scroll on clickable events
+			data.buttonLast.click(function() {
+				data.buttonNext.fadeIn('fast');
+
+				var posX = data.nodes.position().left;
+
+				if (posX + data.scroller.width() <= 0) {
+					data.nodes.stop().animate({
+						left : '+=' + data.scroller.width()
+					},
+					data.options.scrollSpeed, data.options.scrollEasing,
+						function() {
+							if (posX + data.scroller.width() == 0) {
+								data.buttonLast.fadeOut('fast');
+							}
+						}
+					);
+
+					viewButtonNext = true;
+				}
+				else {
+					data.buttonLast.fadeOut('fast');
+
+					data.nodes.stop().animate({
+						left : 0
+					},
+					data.options.scrollSpeed, data.options.scrollEasing);
+
+					viewButtonLast = false;
+				}
+
+				if (callback) {
+					callback(data.scroller);
+				}
+			});
+
+			data.buttonNext.click(function() {
+				data.buttonLast.fadeIn('fast');
+
+				var posX = totalWidth + (data.nodes.position().left - data.scroller.width() );
+
+				if (posX >= data.scroller.width() ) {
+					data.nodes.stop().animate({
+						left : '-=' + data.scroller.width()
+					},
+					data.options.scrollSpeed, data.options.scrollEasing,
+						function() {
+							if (posX == data.scroller.width() ) {
+								data.buttonNext.fadeOut('fast');
+							}
+						}
+					);
+
+					viewButtonLast = true;
+				}
+				else {
+					data.buttonNext.fadeOut('fast');
+
+					data.nodes.stop().animate({
+						left : data.scroller.width() - totalWidth
+					},
+					data.options.scrollSpeed, data.options.scrollEasing);
+
+					viewButtonNext = false;
+				}
+
+				if (callback) {
+					callback(data.scroller);
+				}
+			});
+		}
+	}
 })(jQuery);

@@ -184,7 +184,7 @@
 					viewButtonLast = false;
 				}
 
-				if (callback) {
+				if (typeof callback === 'function') {
 					callback(data.scroller);
 				}
 			});
@@ -219,7 +219,7 @@
 					viewButtonNext = false;
 				}
 
-				if (callback) {
+				if (typeof callback === 'function') {
 					callback(data.scroller);
 				}
 			});

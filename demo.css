@@ -41,7 +41,7 @@
 #container button.daisy_button_next {
 	background-color: transparent;
 	border: 1px solid #BBBBBB;
-	color: #000000;
+	color: transparent;
 	filter: alpha( opacity=1.0 );
 	font-size: 0px;
 	height: 150px;
@@ -65,6 +65,6 @@
 
 #container button.daisy_button_last:hover,
 #container button.daisy_button_next:hover {
-	color: #000000;
+	color: transparent;
 	font-size: 0px;
 }

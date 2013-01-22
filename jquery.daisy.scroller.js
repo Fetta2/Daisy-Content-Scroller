@@ -2,7 +2,7 @@
  *  Daisy Content Scroller
  *  A lightweight horizontal content scroller
  *
- *  Copyright 2011-2012, Marc S. Brooks (http://mbrooks.info)
+ *  Copyright 2011-2013, Marc S. Brooks (http://mbrooks.info)
  *  Licensed under the MIT license:
  *  http://www.opensource.org/licenses/mit-license.php
  *
@@ -13,7 +13,7 @@
 
 (function($) {
 	var methods = {
-		init : function(options, callback) {
+		"init" : function(options, callback) {
 
 			// default options
 			var settings = $.extend({
@@ -40,13 +40,13 @@
 			});
 		},
 
-		destroy : function() {
+		"destroy" : function() {
 			return this.each(function() {
 				$(this).removeData();
 			});
 		},
 
-		generate : function(callback) {
+		"generate" : function(callback) {
 			return this.each(function() {
 				var $this = $(this),
 					data  = $this.data();
@@ -74,7 +74,7 @@
 			});
 		},
 
-		reset : function() {
+		"reset" : function() {
 			return this.each(function() {
 				var $this = $(this),
 					data = $this.data();
@@ -93,10 +93,10 @@
 
 	$.fn.DaisyScroller = function(method) {
 		if (methods[method]) {
-			return methods[method].apply(this, Array.prototype.slice.call(arguments, 1) );
+			return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
 		}
 		else
-		if (typeof method === 'object' || ! method) {
+		if (typeof method === 'object' || !method) {
 			return methods.init.apply(this, arguments);
 		}
 		else {
@@ -108,8 +108,8 @@
 	 * Create HTML table elements
 	 */
 	function createScroller(data, callback) {
-		var totalNodes = data.nodes.length;
-		var totalWidth = 0;
+		var totalNodes = data.nodes.length,
+			totalWidth = 0;
 
 		data.nodes.each(function(index) {
 			totalWidth += $(this).width();
@@ -128,8 +128,8 @@
 			data.buttonLast.hide();
 			data.buttonNext.show(0);
 
-			var viewButtonLast = false;
-			var viewButtonNext = true;
+			var viewButtonLast = false,
+				viewButtonNext = true;
 
 			// show buttons on mouseover events
 			data.scroller.parent().hover(
